@@ -1,4 +1,4 @@
-# Custom Yocto Project meta-layer developed for LSMY
+# Custom Yocto Project meta-layer developed for LSMY - Kirkstone
 
 ## 1. Overview
 
