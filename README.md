@@ -55,26 +55,18 @@ This meta-layer provides:
 ```
 meta-lsmy/
 ├── conf/
-│   ├── layer.conf
-│   └── distro/
-|   └── machine/
-|	    └── raspberrypi4-lsmy.conf
-│
-├── recipes-core/
-│   └── images/
-│       └── lsmy-image.bb
-│
-├── recipes-connectivity/
-│   └── modbus/
-│       └── libmodbus_%.bb
-│
-├── recipes-ai/
-│   ├── tflite/
-│   └── onnxruntime/
-│
-├── recipes-apps/
-│   └── labsafety-app/
-│
+|    └── layer.conf
+|	 ├── distro/
+|    └── machine/
+|        └── raspberrypi4-lsmy.conf
+|
+└── recipes-core/
+|    └── images/
+|    |   └── lsmy-image.bb
+|    └── packagegroups/
+|        └── packagegroup-lsmy-base.bb
+|        └── packagegroup-lsmy-network.bb
+|        └── packagegroup-lsmy-ai.bb
 └── COPYING.MIT
 └── README.md
 ```
