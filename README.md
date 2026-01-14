@@ -56,7 +56,7 @@ This meta-layer provides:
 meta-lsmy/
 ├── conf/
 |    └── layer.conf
-|	 ├── distro/
+|	   ├── distro/
 |    └── machine/
 |        └── raspberrypi4-lsmy.conf
 |
@@ -67,6 +67,11 @@ meta-lsmy/
 |        └── packagegroup-lsmy-base.bb
 |        └── packagegroup-lsmy-network.bb
 |        └── packagegroup-lsmy-ai.bb
+└── recipes-kernel/
+|			└── linux/
+|			    ├── linux-raspberrypi_%.bbappend
+|			    └── files/
+|			        └── rpi-i2c.cfg
 └── COPYING.MIT
 └── README.md
 ```
