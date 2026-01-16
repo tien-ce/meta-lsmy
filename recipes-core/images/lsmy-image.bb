@@ -24,6 +24,14 @@ IMAGE_INSTALL += "\
     packagegroup-lsmy-ai \
 "
 
+# ====== SYSTEM UTILITIES ======
+# - Basic system tools and libraries
+# - Useful for debugging and system inspection
+IMAGE_INSTALL:append = " \
+    glibc \
+    libatomic \
+"
+
 # ====== REMOTE ACCESS (SSH) ======
 # Enable OpenSSH server for remote login and management
 IMAGE_FEATURES += "ssh-server-openssh"

@@ -12,7 +12,5 @@ RDEPENDS:${PN} = "\
     nano \
     curl \
     opkg \
-    glibc \
     coreutils \
-    libatomic \
 "
