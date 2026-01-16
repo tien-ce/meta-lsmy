@@ -8,7 +8,7 @@ inherit packagegroup
 # - HTTP client
 # - MQTT client
 # - WebSocket client
-RDEPENDS:${PN} = "\
+#RDEPENDS:${PN} = "\
 #    python3-requests \
 #    python3-paho-mqtt \
 #    python3-websocket-client \
