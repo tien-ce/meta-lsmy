@@ -5,7 +5,7 @@ LICENSE = "MIT"
 inherit core-image
 
 # Inherit the behavior of full-cmdline
-require recipes-core/images/core-image-full-cmdline.bb
+require recipes-extended/images/core-image-full-cmdline.bb
 
 ############################################
 # DEVELOP CUSTOM CONFIGURATION
