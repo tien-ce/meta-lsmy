@@ -16,7 +16,7 @@ require recipes-extended/images/core-image-full-cmdline.bb
 # ====== REMOTE ACCESS (SSH) ======
 # Enable OpenSSH server for remote login and management
 IMAGE_FEATURES += "ssh-server-openssh"
-CMDLINE:append = " brcmfmac.feature_disable=0x02000"
+CMDLINE:append = " brcmfmac.feature_disable=0x82000"
 
 # ====== NETWORK & WIFI ======
 # - WiFi firmware (Broadcom BCM43455)
