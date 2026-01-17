@@ -13,3 +13,7 @@ inherit packagegroup
 #    python3-periphery \
 #    python3-pyserial \
 #"
+RDEPENDS:${PN} = "\
+    i2c-tools \
+    python3-smbus \
+"

@@ -7,7 +7,7 @@ inherit packagegroup
 # ====== PYTHON CORE ======
 # - Python interpreter
 # - Python package manager (pip)
-#RDEPENDS:${PN} = "\
-#    python3 \
-#    python3-pip \
-#"
+RDEPENDS:${PN} = "\
+    python3 \
+    python3-pip \
+"
