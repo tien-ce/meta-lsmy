@@ -22,6 +22,7 @@ IMAGE_INSTALL += "\
     packagegroup-lsmy-iot \
     packagegroup-lsmy-computer-vision \
     packagegroup-lsmy-ai \
+    packagegroup-lsmy-apps \
 "
 
 # ====== SYSTEM UTILITIES ======
