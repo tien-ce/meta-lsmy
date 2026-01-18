@@ -22,6 +22,7 @@ IMAGE_INSTALL += "\
     packagegroup-lsmy-iot \
     packagegroup-lsmy-computer-vision \
     packagegroup-lsmy-ai \
+    packagegroup-lsmy-apps \
 "
 
 # ====== SYSTEM UTILITIES ======
@@ -35,6 +36,8 @@ IMAGE_INSTALL:append = " \
 # ====== REMOTE ACCESS (SSH) ======
 # Enable OpenSSH server for remote login and management
 IMAGE_FEATURES += "ssh-server-openssh"
+
+# Disable selected brcmfmac firmware features for WiFi stability
 CMDLINE:append = " brcmfmac.feature_disable=0x82000"
 
 ############################################
