@@ -9,4 +9,6 @@ inherit packagegroup
 RDEPENDS:${PN} = "\
     hello-py \
     hello-c \
+    lsmy-hello \
+    run-lsmy \
 "
