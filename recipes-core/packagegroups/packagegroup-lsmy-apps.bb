@@ -8,4 +8,5 @@ inherit packagegroup
 # - Hello app for test
 RDEPENDS:${PN} = "\
     hello-py \
+    hello-c \
 "
