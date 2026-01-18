@@ -1,7 +1,7 @@
 SUMMARY = "Hello World Python application"
 DESCRIPTION = "Prints hello world every 3 seconds"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://${COREBASE}/meta/files/common-licenses/MIT;md5=0835c5d5f3c1b5a4fbb8f0c41e5d94f4"
+LIC_FILES_CHKSUM = "file://${COREBASE}/meta/files/common-licenses/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
 SRC_URI = "git://github.com/nguyenthinhthanh/IoT-AI-Laboratory-Safety-System-on-CoreIoT-with-Yocto-Linux.git;branch=main;protocol=https"
 SRCREV = "${AUTOREV}"
