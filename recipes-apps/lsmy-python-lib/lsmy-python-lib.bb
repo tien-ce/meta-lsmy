@@ -8,10 +8,12 @@ SRCREV = "${AUTOREV}"
 
 S = "${WORKDIR}/git/src/lsmy-python-lib"
 
-inherit setuptools3
-
 RDEPENDS:${PN} += "python3-core"
 
-FILES:${PN} += "\
-    ${PYTHON_SITEPACKAGES_DIR}/lsmy_python_lib \
-"
+do_install() {
+    install -d ${D}${PYTHON_SITEPACKAGES_DIR}/lsmy_python_lib
+    cp -r ${S}/lsmy_python_lib/* \
+        ${D}${PYTHON_SITEPACKAGES_DIR}/lsmy_python_lib/
+}
+
+FILES:${PN} += "${PYTHON_SITEPACKAGES_DIR}/lsmy_python_lib"
