@@ -8,6 +8,8 @@ SRCREV = "${AUTOREV}"
 
 S = "${WORKDIR}/git/src/lsmy-python-lib"
 
+inherit python3-dir
+
 RDEPENDS:${PN} += "python3-core"
 
 do_install() {
