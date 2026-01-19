@@ -12,6 +12,7 @@ RDEPENDS:${PN} += " \
     python3-core \
     python3-ctypes \
     lsmy-hello \
+    lsmy-python-lib \
 "
 
 do_install() {
