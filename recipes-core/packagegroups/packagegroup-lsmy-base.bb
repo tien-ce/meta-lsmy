@@ -11,6 +11,5 @@ RDEPENDS:${PN} = "\
     kernel-modules \
     nano \
     curl \
-    opkg \
     coreutils \
 "
