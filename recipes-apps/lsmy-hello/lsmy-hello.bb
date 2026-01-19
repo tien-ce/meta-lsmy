@@ -9,3 +9,13 @@ SRCREV = "${AUTOREV}"
 S = "${WORKDIR}/git/src/lsmy-hello"
 
 inherit cmake
+
+# Runtime package: SONAME
+FILES:${PN} += "\
+    ${libdir}/liblsmy_hello.so.* \
+"
+
+# Dev package: link name
+FILES:${PN}-dev += "\
+    ${libdir}/liblsmy_hello.so \
+"
