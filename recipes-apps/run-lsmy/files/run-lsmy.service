@@ -1,0 +1,15 @@
+[Unit]
+Description=LSMY Main Application
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/run-lsmy
+Restart=always
+RestartSec=3
+
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

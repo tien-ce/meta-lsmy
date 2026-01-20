@@ -37,6 +37,9 @@ IMAGE_INSTALL:append = " \
 # Enable OpenSSH server for remote login and management
 IMAGE_FEATURES += "ssh-server-openssh"
 
+# ====== PACKAGE MANAGER ======
+IMAGE_FEATURES += "package-management"
+
 # Disable selected brcmfmac firmware features for WiFi stability
 CMDLINE:append = " brcmfmac.feature_disable=0x82000"
 
