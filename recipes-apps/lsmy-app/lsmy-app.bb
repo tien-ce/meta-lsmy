@@ -15,6 +15,7 @@ RDEPENDS:${PN} += " \
     python3-ctypes \
     lsmy-hello \
     lsmy-python-lib \
+    lsmy-webserver \
 "
 
 do_install() {
