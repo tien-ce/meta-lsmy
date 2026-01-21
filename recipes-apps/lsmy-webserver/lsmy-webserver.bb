@@ -23,4 +23,7 @@ do_install() {
     cp -r ${S}/webserver/* ${D}/usr/share/lsmy_webserver/webserver/
 }
 
-FILES:${PN} += "${PYTHON_SITEPACKAGES_DIR}/lsmy_webserver"
+FILES:${PN} += " \
+    ${PYTHON_SITEPACKAGES_DIR}/lsmy_webserver \
+    /usr/share/lsmy_webserver \
+"
