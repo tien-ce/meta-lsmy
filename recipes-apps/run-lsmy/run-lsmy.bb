@@ -14,7 +14,7 @@ inherit systemd
 RDEPENDS:${PN} += " \
     python3-core \
     python3-ctypes \
-    lsmy-python-app \
+    lsmy-app \
 "
 
 do_install() {
