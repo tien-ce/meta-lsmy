@@ -19,7 +19,7 @@ RDEPENDS:${PN} = " \
     hostapd \
     dnsmasq \
     wpa-supplicant \
-    systemd-networkd \
+    systemd \
 "
 
 do_install() {
@@ -49,8 +49,3 @@ do_install() {
     install -m 0600 ${WORKDIR}/wpa_supplicant.conf \
         ${D}/etc/wpa_supplicant/wpa_supplicant.conf
 }
-
-SYSTEMD_SERVICE:${PN} = " \
-    systemd-networkd.service \
-"
-SYSTEMD_AUTO_ENABLE = "enable"
