@@ -14,3 +14,7 @@ do_install:append() {
     install -m 0644 ${WORKDIR}/hostapd-override.conf \
         ${D}${systemd_system_unitdir}/hostapd.service.d/override.conf
 }
+
+FILES:${PN} += " \
+    ${systemd_system_unitdir}/hostapd.service.d \
+"
