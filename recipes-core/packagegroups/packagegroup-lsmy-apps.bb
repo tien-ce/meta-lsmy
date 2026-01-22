@@ -10,4 +10,5 @@ RDEPENDS:${PN} = "\
     hello-py \
     hello-c \
     run-lsmy \
+    wifi-config \
 "
