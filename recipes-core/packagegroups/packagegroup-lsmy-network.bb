@@ -13,4 +13,6 @@ RDEPENDS:${PN} = "\
     dhcpcd \
     iw \
     iproute2 \
+    hostapd \
+    dnsmasq \    
 "
