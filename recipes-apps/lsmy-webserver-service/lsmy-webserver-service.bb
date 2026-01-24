@@ -20,7 +20,7 @@ RDEPENDS:${PN} += " \
     python3-json \
     python3-asyncio \
     python3-websockets \
-    python3-misc \
+    python3-profile \
 "
 
 do_install() {
