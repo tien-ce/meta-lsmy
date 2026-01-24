@@ -12,6 +12,7 @@ inherit python3-dir
 
 RDEPENDS:${PN} += " \
     python3-core \
+    lsmy-webserver-service \
 "
 
 do_install() {

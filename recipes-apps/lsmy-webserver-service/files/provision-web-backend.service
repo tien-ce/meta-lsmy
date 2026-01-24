@@ -1,0 +1,11 @@
+[Unit]
+Description=Provisioning Web Backend
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/provision-web-backend
+ExecStop=/bin/kill -TERM $MAINPID
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
