@@ -18,6 +18,8 @@ RDEPENDS:${PN} += " \
 	busybox \
     python3-core \
     python3-json \
+    python3-asyncio \
+    python3-dataclasses \
     python3-websockets \
 "
 
