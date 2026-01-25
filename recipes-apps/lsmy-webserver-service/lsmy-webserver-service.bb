@@ -24,6 +24,7 @@ RDEPENDS:${PN} += " \
     python3-websockets \
     python3-profile \
     python3-periphery \
+    lsmy-python-lib \
 "
 
 do_install() {
