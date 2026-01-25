@@ -23,7 +23,7 @@ RDEPENDS:${PN} += " \
     python3-asyncio \
     python3-websockets \
     python3-profile \
-    python3-gpiod \
+    python3-periphery \
 "
 
 do_install() {
