@@ -7,7 +7,9 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/meta/files/common-licenses/MIT;md5=0835ad
 
 SRC_URI = "git://github.com/nguyenthinhthanh/IoT-AI-Laboratory-Safety-System-on-CoreIoT-with-Yocto-Linux.git;branch=main;protocol=https \
            file://provision-web-frontend.service \
-           file://provision-web-backend.service"
+           file://provision-web-backend.service \
+           file://lsmy-tmpfiles.conf \
+           "
 SRCREV = "${AUTOREV}"
 
 S = "${WORKDIR}/git"
@@ -21,6 +23,7 @@ RDEPENDS:${PN} += " \
     python3-asyncio \
     python3-websockets \
     python3-profile \
+    python3-gpiod \
 "
 
 do_install() {
@@ -39,6 +42,10 @@ do_install() {
     install -m 0644 \
         ${WORKDIR}/provision-web-backend.service \
         ${D}${systemd_system_unitdir}/provision-web-backend.service
+
+    install -d ${D}${sysconfdir}/tmpfiles.d
+    install -m 0644 ${WORKDIR}/lsmy-tmpfiles.conf \
+        ${D}${sysconfdir}/tmpfiles.d/lsmy.conf
 }
 
 SYSTEMD_SERVICE:${PN} = " \
