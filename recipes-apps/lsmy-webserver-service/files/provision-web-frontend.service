@@ -1,0 +1,11 @@
+[Unit]
+Description=Provisioning Web Frontend
+After=network.target
+
+[Service]
+ExecStart=/bin/busybox httpd -f -p 80 -h /usr/share/lsmy_webserver/webserver/
+ExecStop=/bin/kill -TERM $MAINPID
+Restart=no
+
+[Install]
+WantedBy=multi-user.target

@@ -7,9 +7,6 @@ inherit packagegroup
 # ====== EMBEDDED & HARDWARE INTERFACES ======
 # - Hardware communication tools
 # - Python bindings for embedded interfaces
-#RDEPENDS:${PN} = "\
-#    i2c-tools \
-#    python3-smbus \
-#    python3-periphery \
-#    python3-pyserial \
-#"
+RDEPENDS:${PN} = "\
+    python3-periphery \
+"

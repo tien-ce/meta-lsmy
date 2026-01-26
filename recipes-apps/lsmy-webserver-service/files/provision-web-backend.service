@@ -1,0 +1,12 @@
+[Unit]
+Description=Provisioning Web Backend
+After=network.target
+Requires=systemd-tmpfiles-setup.service
+
+[Service]
+ExecStart=/usr/bin/provision-web-backend
+ExecStop=/bin/kill -TERM $MAINPID
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
