@@ -43,4 +43,8 @@ IMAGE_FEATURES += "package-management"
 # Disable selected brcmfmac firmware features for WiFi stability
 CMDLINE:append = " brcmfmac.feature_disable=0x82000"
 
+# ====== CAMERA CSI CONFIGURATION ======
+RPI_EXTRA_CONFIG += "dtoverlay=vc4-kms-v3d"
+RPI_EXTRA_CONFIG += "dtoverlay=ov5647,cam0"
+
 ############################################
