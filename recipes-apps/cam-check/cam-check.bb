@@ -8,6 +8,8 @@ SRCREV = "${AUTOREV}"
 
 S = "${WORKDIR}/git/src/cam-check"
 
+DEPENDS += "opencv"
+
 RDEPENDS:${PN} += " \
     opencv \
     libx11 \
