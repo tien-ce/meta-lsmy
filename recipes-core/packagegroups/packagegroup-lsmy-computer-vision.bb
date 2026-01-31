@@ -9,7 +9,6 @@ inherit packagegroup
 RDEPENDS:${PN} = "\
     v4l-utils \
     libcamera \
-    libcamera-apps \
     opencv \
     opencv-apps \
     libx11 \
