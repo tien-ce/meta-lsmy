@@ -17,6 +17,10 @@ RDEPENDS:${PN} += " \
     libx11 \
     xauth \
     udev-rules \
+    gstreamer1.0 \
+    gstreamer1.0-plugins-base \
+    gstreamer1.0-plugins-good \
+    gstreamer1.0-plugins-bad \
 "
 
 inherit cmake
