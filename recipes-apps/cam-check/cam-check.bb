@@ -14,6 +14,7 @@ RDEPENDS:${PN} += " \
     opencv \
     libx11 \
     xauth \
+    udev-rules \
 "
 
 inherit cmake
