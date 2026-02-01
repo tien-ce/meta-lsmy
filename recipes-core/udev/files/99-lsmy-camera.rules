@@ -1,1 +1,1 @@
-SUBSYSTEM=="video4linux", ATTRS{name}=="unicam", SYMLINK+="camera0"
+SUBSYSTEM=="video4linux", DRIVERS=="unicam", SYMLINK+="camera0"

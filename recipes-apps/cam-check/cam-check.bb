@@ -12,6 +12,8 @@ DEPENDS += "opencv"
 
 RDEPENDS:${PN} += " \
     opencv \
+    v4l-utils \
+    libv4l \
     libx11 \
     xauth \
     udev-rules \

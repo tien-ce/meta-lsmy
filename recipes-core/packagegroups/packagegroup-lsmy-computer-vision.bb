@@ -8,6 +8,7 @@ inherit packagegroup
 # - OpenCV runtime libraries
 RDEPENDS:${PN} = "\
     v4l-utils \
+    libv4l \
     libcamera \
     opencv \
     xauth \
