@@ -8,14 +8,19 @@ SRCREV = "${AUTOREV}"
 
 S = "${WORKDIR}/git/src/cam-check"
 
-DEPENDS += "opencv"
+DEPENDS += " \
+    opencv \
+    libcamera \
+"
 
 RDEPENDS:${PN} += " \
     opencv \
+    libcamera \
     v4l-utils \
     libv4l \
     libx11 \
     xauth \
+    pkgconfig \
     udev-rules \
     blacklist \
 "

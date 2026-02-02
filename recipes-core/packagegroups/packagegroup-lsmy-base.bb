@@ -12,4 +12,5 @@ RDEPENDS:${PN} = "\
     nano \
     curl \
     coreutils \
+    pkgconfig \
 "
