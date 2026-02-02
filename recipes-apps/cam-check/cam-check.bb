@@ -11,6 +11,7 @@ S = "${WORKDIR}/git/src/cam-check"
 DEPENDS += " \
     opencv \
     libcamera \
+    pkgconfig-native \
 "
 
 RDEPENDS:${PN} += " \
