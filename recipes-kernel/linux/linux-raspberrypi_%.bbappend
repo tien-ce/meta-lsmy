@@ -11,6 +11,6 @@ SRC_URI += " \
 
 do_install:append() {
     install -d ${D}${sysconfdir}/modprobe.d
-    install -m 0644 ${WORKDIR}/blacklist-mmal.conf \
-        ${D}${sysconfdir}/modprobe.d/blacklist-mmal.conf
+    install -m 0644 ${WORKDIR}/blacklist.conf \
+        ${D}${sysconfdir}/modprobe.d/blacklist.conf
 }
