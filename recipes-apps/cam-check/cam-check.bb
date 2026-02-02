@@ -17,6 +17,7 @@ RDEPENDS:${PN} += " \
     libx11 \
     xauth \
     udev-rules \
+    blacklist \
 "
 
 inherit cmake
