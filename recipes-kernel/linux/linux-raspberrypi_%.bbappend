@@ -14,3 +14,5 @@ do_install:append() {
     install -m 0644 ${WORKDIR}/blacklist.conf \
         ${D}${sysconfdir}/modprobe.d/blacklist.conf
 }
+
+FILES:${PN} += "${sysconfdir}/modprobe.d/blacklist.conf"
