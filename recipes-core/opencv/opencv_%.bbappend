@@ -1,1 +1,1 @@
-PACKAGECONFIG:append = " v4l gstreamer"
+PACKAGECONFIG:append = " v4l"
