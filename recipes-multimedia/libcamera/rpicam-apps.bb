@@ -11,16 +11,18 @@ SRCREV = "49344f2a8d1817558d4e6463032fcf11be618b38"
 
 S = "${WORKDIR}/git"
 
-DEPENDS = "libcamera boost libpng jpeg tiff libexif libx11 libepoxy"
+DEPENDS = "libcamera boost libpng jpeg tiff libexif libx11 libepoxy libdrm"
 
-inherit cmake pkgconfig
+inherit meson pkgconfig
 
-EXTRA_OECMAKE = " \
-    -DENABLE_DRM=POST \
-    -DENABLE_X11=ON \
-    -DENABLE_QT=OFF \
-    -DENABLE_OPENCV=OFF \
-    -DENABLE_TFLITE=OFF \
+EXTRA_OEMESON = " \
+    -Dpreview=enabled \
+    -Ddrm=enabled \
+    -Dx11=enabled \
+    -Dqt=disabled \
+    -Dopencv=disabled \
+    -Dtflite=disabled \
+    -Dhailo=disabled \
 "
 
 FILES:${PN} += "${bindir}/*"
