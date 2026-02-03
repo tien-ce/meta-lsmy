@@ -3,7 +3,7 @@ DESCRIPTION = "A suite of lightweight C++ applications to test and use libcamera
 Includes rpicam-hello, rpicam-still, rpicam-vid, and rpicam-raw. \
 This is the renamed version of the former libcamera-apps."
 LICENSE = "BSD-2-Clause"
-LIC_FILES_CHKSUM = "file://license.txt;md5=2ee03331899745388c4d7ec682c3008f"
+LIC_FILES_CHKSUM = "file://license.txt;md5=a0013d1b383d72ba4bdc5b750e7d1d77"
 
 SRC_URI = "git://github.com/raspberrypi/rpicam-apps.git;protocol=https;branch=main"
 # Tag v1.5.0
