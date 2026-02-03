@@ -6,14 +6,18 @@ LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://license.txt;md5=a0013d1b383d72ba4bdc5b750e7d1d77"
 
 SRC_URI = "git://github.com/raspberrypi/rpicam-apps.git;protocol=https;branch=main"
-# Tag v1.2.0
-SRCREV = "4334f5aa0783206e7c331ff36d9729451c601004" 
+# Tag v1.5.0
+SRCREV = "49344f2a8d1817558d4e6463032fcf11be618b38" 
 
 S = "${WORKDIR}/git"
 
 DEPENDS = "libcamera boost libpng jpeg tiff libexif libx11 libepoxy libdrm"
 
 inherit meson pkgconfig
+
+do_configure:prepend() {
+    find ${S} -name "meson.build" -type f -exec sed -i "s/meson_version.*>=.*/meson_version : '>= 0.61.3',/g" {} +
+}
 
 EXTRA_OEMESON = " \
     -Dpreview=enabled \
