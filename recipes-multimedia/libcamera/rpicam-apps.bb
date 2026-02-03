@@ -6,7 +6,8 @@ LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://license.txt;md5=2ee03331899745388c4d7ec682c3008f"
 
 SRC_URI = "git://github.com/raspberrypi/rpicam-apps.git;protocol=https;branch=main"
-SRCREV = "v1.5.0" 
+# Tag v1.5.0
+SRCREV = "49344f2a8d1817558d4e6463032fcf11be618b38" 
 
 S = "${WORKDIR}/git"
 
