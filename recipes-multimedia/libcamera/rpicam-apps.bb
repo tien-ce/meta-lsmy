@@ -6,27 +6,25 @@ LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://license.txt;md5=a0013d1b383d72ba4bdc5b750e7d1d77"
 
 SRC_URI = "git://github.com/raspberrypi/rpicam-apps.git;protocol=https;branch=main"
-# Tag v1.2.0
-SRCREV = "4334f5aa0783206e7c331ff36d9729451c601004" 
+# Tag v1.0.2
+SRCREV = "556858ee3d00fecc9c96023e62587f24f13e5c97" 
 
 S = "${WORKDIR}/git"
 
 DEPENDS = "libcamera boost libpng jpeg tiff libexif libx11 libepoxy libdrm"
 
-inherit meson pkgconfig
+inherit cmake pkgconfig
 
 do_configure:prepend() {
     find ${S} -name "meson.build" -type f -exec sed -i "s/meson_version.*>=.*/meson_version : '>= 0.61.3',/g" {} +
 }
 
-EXTRA_OEMESON = " \
-    -Denable_drm=enabled \
-    -Denable_egl=enabled \
-    -Denable_qt=disabled \
-    -Denable_opencv=disabled \
-    -Denable_tflite=disabled \
-    -Denable_hailo=disabled \
-    -Dneon_flags=auto \
+EXTRA_OECMAKE = " \
+    -DENABLE_DRM=1 \
+    -DENABLE_EGL=1 \
+    -DENABLE_QT=0 \
+    -DENABLE_OPENCV=0 \
+    -DENABLE_TFLITE=0 \
 "
 
-FILES:${PN} += "${bindir}/*"
+FILES:${PN} += "${bindir}/* ${libdir}/*.so"
