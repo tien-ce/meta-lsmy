@@ -1,4 +1,4 @@
-# Custom Yocto Project meta-layer developed for LSMY - Master
+# Custom Yocto Project meta-layer developed for LSMY - Scarthgap
 
 ## 1. Overview
 
