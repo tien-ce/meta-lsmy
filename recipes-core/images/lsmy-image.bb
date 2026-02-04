@@ -32,6 +32,8 @@ IMAGE_INSTALL:append = " \
     glibc \
     libatomic \
     libx11 \
+    libgpiod \
+    libgpiod-tools \
 "
 
 # ====== REMOTE ACCESS (SSH) ======

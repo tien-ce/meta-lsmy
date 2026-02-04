@@ -8,8 +8,6 @@ inherit packagegroup
 # - Hardware communication tools
 # - Python bindings for embedded interfaces
 RDEPENDS:${PN} = "\
-    libgpiod \
-    libgpiod-tools \
     python3-gpiod \
     i2c-tools \
 "
