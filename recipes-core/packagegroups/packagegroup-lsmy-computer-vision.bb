@@ -10,6 +10,7 @@ RDEPENDS:${PN} = "\
     v4l-utils \
     libv4l \
     libcamera \
+    libcamera-apps \
     opencv \
     xauth \
 "
