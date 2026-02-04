@@ -23,7 +23,7 @@ RDEPENDS:${PN} += " \
     python3-asyncio \
     python3-websockets \
     python3-profile \
-    python3-periphery \
+    python3-gpiod \
     lsmy-python-lib \
 "
 

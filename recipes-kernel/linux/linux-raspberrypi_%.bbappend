@@ -6,4 +6,5 @@ FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 SRC_URI += " \
     file://rpi-i2c.cfg \
     file://camera.cfg \
+    file://gpio.cfg \
 "
