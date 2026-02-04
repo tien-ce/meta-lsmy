@@ -31,6 +31,7 @@ IMAGE_INSTALL += "\
 IMAGE_INSTALL:append = " \
     glibc \
     libatomic \
+    libx11 \
 "
 
 # ====== REMOTE ACCESS (SSH) ======
