@@ -15,10 +15,6 @@ DEPENDS = "libcamera boost libpng jpeg tiff libexif libx11 libepoxy libdrm"
 
 inherit cmake pkgconfig
 
-do_configure:prepend() {
-    find ${S} -name "meson.build" -type f -exec sed -i "s/meson_version.*>=.*/meson_version : '>= 0.61.3',/g" {} +
-}
-
 EXTRA_OECMAKE = " \
     -DENABLE_DRM=1 \
     -DENABLE_EGL=1 \
@@ -27,4 +23,4 @@ EXTRA_OECMAKE = " \
     -DENABLE_TFLITE=0 \
 "
 
-FILES:${PN} += "${bindir}/* ${libdir}/*.so"
+FILES:${PN} += "${bindir}/*"
