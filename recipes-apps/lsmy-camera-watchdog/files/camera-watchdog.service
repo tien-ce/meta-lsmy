@@ -1,13 +1,13 @@
 [Unit]
 Description=Camera Connection Watchdog
 After=network.target
+StartLimitIntervalSec=300
+StartLimitBurst=5
 
 [Service]
 ExecStart=/usr/bin/lsmy-camera-watchdog
 Restart=always
 RestartSec=5
-StartLimitIntervalSec=300
-StartLimitBurst=5
 
 [Install]
 WantedBy=multi-user.target
