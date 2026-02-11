@@ -16,6 +16,7 @@ RDEPENDS:${PN} += " \
     lsmy-hello \
     lsmy-python-lib \
     lsmy-webserver \
+    lsmy-camera-watchdog \
 "
 
 do_install() {
