@@ -13,4 +13,5 @@ RDEPENDS:${PN} = "\
     curl \
     coreutils \
     pkgconfig \
+    htop \
 "
