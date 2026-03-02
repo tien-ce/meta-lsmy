@@ -8,6 +8,7 @@ ExecStartPre=/usr/bin/sleep 2
 ExecStart=/usr/bin/run-lsmy
 Restart=always
 RestartSec=3
+KillMode=process
 
 StandardOutput=journal
 StandardError=journal
