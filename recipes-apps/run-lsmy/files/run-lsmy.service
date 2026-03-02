@@ -1,11 +1,10 @@
 [Unit]
 Description=LSMY Main Application
-After=local-fs.target network-online.target
-Wants=network-online.target
+After=network.target
 
 [Service]
 Type=simple
-ExecStartPre=/bin/sleep 2
+ExecStartPre=/usr/bin/sleep 2
 ExecStart=/usr/bin/run-lsmy
 Restart=always
 RestartSec=3
