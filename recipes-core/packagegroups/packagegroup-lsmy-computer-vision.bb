@@ -11,6 +11,11 @@ RDEPENDS:${PN} = "\
     libv4l \
     libcamera \
     libcamera-apps \
+    libcamera-gst \
+    gstreamer1.0 \
+    gstreamer1.0-plugins-base \
+    gstreamer1.0-plugins-good \
+    gstreamer1.0-plugins-bad \
     opencv \
     xauth \
 "

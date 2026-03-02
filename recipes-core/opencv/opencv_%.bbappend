@@ -1,2 +1,2 @@
-PACKAGECONFIG:append = " v4l"
-#PACKAGECONFIG:remove = "gstreamer gphoto2 samples"
+PACKAGECONFIG:append = " gstreamer v4l"
+#PACKAGECONFIG:remove = "gphoto2 samples"
