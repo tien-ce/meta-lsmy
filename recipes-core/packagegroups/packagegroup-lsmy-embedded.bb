@@ -9,4 +9,5 @@ inherit packagegroup
 # - Python bindings for embedded interfaces
 RDEPENDS:${PN} = "\
     python3-periphery \
+    i2c-tools \
 "
