@@ -6,6 +6,11 @@ inherit packagegroup
 
 # ====== CAMERA & COMPUTER VISION ======
 # - OpenCV runtime libraries
-#RDEPENDS:${PN} = "\
-#    opencv \
-#"
+RDEPENDS:${PN} = "\
+    v4l-utils \
+    libv4l \
+    libcamera \
+    rpicam-apps \
+    opencv \
+    xauth \
+"
