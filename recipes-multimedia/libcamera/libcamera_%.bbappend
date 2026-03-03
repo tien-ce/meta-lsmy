@@ -1,5 +1,7 @@
 # Enable GStreamer plugin for libcamera (libcamerasrc)
-PACKAGECONFIG:append = " gstreamer"
+PACKAGECONFIG:append = " gst"
+
+INSANE_SKIP:${PN} += "32bit-time"
 
 # Enable Raspberry Pi pipeline, this will also build IPA
 EXTRA_OEMESON = "\
