@@ -5,6 +5,6 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/meta/files/common-licenses/MIT;md5=0835ad
 SRC_URI = "git://github.com/tien-ce/Graduation-Project;branch=main;protocol=https"
 SRCREV = "${AUTOREV}"
 
-S = "${WORKDIR}/git/Components/data_correctness"
+S = "${WORKDIR}/git/Components/data_handle"
 
 inherit cmake
