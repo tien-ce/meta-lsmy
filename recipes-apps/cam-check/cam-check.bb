@@ -19,8 +19,6 @@ RDEPENDS:${PN} += " \
     libcamera \
     v4l-utils \
     libv4l \
-    libx11 \
-    xauth \
     pkgconfig \
     udev-rules \
     blacklist \

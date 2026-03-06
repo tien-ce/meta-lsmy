@@ -18,4 +18,7 @@ RDEPENDS:${PN} = "\
     gstreamer1.0-plugins-bad \
     opencv \
     xauth \
+    weston \
+    weston-init \
+    weston-examples \
 "
