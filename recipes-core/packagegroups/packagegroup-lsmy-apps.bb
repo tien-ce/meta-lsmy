@@ -9,7 +9,6 @@ inherit packagegroup
 RDEPENDS:${PN} = "\
     hello-py \
     hello-c \
-    cam-check \
     run-lsmy \
     wifi-config \
 "
