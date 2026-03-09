@@ -12,8 +12,3 @@ EXTRA_OEMESON = "\
     -Dtest=false \
     -Ddocumentation=disabled \
 "
-
-# Skip warning 32-bit time
-INSANE_SKIP:${PN} += "32bit-time"
-INSANE_SKIP:${PN}-base += "32bit-time"
-INSANE_SKIP:libcamera-v4l2-compat += "32bit-time"
