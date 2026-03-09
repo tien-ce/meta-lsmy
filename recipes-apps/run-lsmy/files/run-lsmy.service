@@ -1,13 +1,18 @@
 [Unit]
 Description=LSMY Main Application
 After=network.target
+After=weston.service
 
 [Service]
 Type=simple
+Environment=XDG_RUNTIME_DIR=/run/user/0
+Environment=WAYLAND_DISPLAY=wayland-0
+
 ExecStartPre=/usr/bin/sleep 2
 ExecStart=/usr/bin/run-lsmy
 Restart=always
 RestartSec=3
+
 KillMode=mixed
 KillSignal=SIGTERM
 TimeoutStopSec=15
