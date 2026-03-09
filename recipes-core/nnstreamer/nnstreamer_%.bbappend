@@ -1,1 +1,1 @@
-PACKAGECONFIG:append = " tensorflow-lite"
+#PACKAGECONFIG:append = " tensorflow-lite"
