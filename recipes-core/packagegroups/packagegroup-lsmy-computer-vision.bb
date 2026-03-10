@@ -19,6 +19,7 @@ RDEPENDS:${PN} = "\
     gstreamer1.0-plugins-bad-kms \
     python3-pygobject \
     nnstreamer \
+    nnstreamer-tensorflow-lite \
     tensorflow-lite \
     weston \
     weston-init \
