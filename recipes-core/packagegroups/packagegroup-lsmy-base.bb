@@ -14,4 +14,5 @@ RDEPENDS:${PN} = "\
     coreutils \
     pkgconfig \
     htop \
+    userland \
 "
