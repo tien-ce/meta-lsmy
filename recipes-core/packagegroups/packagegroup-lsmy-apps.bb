@@ -11,4 +11,5 @@ RDEPENDS:${PN} = "\
     hello-c \
     run-lsmy \
     wifi-config \
+    models-deployer \
 "
