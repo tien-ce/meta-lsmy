@@ -18,6 +18,7 @@ RDEPENDS:${PN} = "\
     gstreamer1.0-plugins-bad \
     gstreamer1.0-plugins-bad-kms \
     python3-pygobject \
+    python3-psutil \
     nnstreamer \
     nnstreamer-tensorflow-lite \
     tensorflow-lite \
