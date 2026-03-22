@@ -40,7 +40,8 @@ IMAGE_INSTALL:append = " \
 IMAGE_FEATURES += "ssh-server-openssh"
 
 # ====== PACKAGE MANAGER ======
-IMAGE_FEATURES += "package-management"
+# IMAGE_FEATURES += "package-management"
+IMAGE_FEATURES_remove = "package-management"
 
 # Disable selected brcmfmac firmware features for WiFi stability
 CMDLINE:append = " brcmfmac.feature_disable=0x82000"
