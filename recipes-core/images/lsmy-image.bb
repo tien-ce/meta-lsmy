@@ -41,7 +41,7 @@ IMAGE_FEATURES += "ssh-server-openssh"
 
 # ====== PACKAGE MANAGER ======
 # IMAGE_FEATURES += "package-management"
-IMAGE_FEATURES_remove = "package-management"
+IMAGE_FEATURES:remove = "package-management"
 
 # ====== OS SECURITY ======
 # Enable read-only rootfs
