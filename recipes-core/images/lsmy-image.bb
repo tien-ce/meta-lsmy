@@ -43,6 +43,11 @@ IMAGE_FEATURES += "ssh-server-openssh"
 # IMAGE_FEATURES += "package-management"
 IMAGE_FEATURES_remove = "package-management"
 
+# ====== OS SECURITY ======
+# Enable read-only rootfs
+IMAGE_FEATURES += "read-only-rootfs"
+
+
 # Disable selected brcmfmac firmware features for WiFi stability
 CMDLINE:append = " brcmfmac.feature_disable=0x82000"
 
