@@ -13,6 +13,9 @@ require recipes-extended/images/core-image-full-cmdline.bb
 # Author : Nguyen Thinh Thanh
 ############################################
 
+# ====== SYSTEM CONFIGURATION ======
+WKS_FILE = "sdimage-raspberrypi-lsmy.wks"
+
 # ====== SYSTEM FEATURE STACK ======
 IMAGE_INSTALL += "\
     packagegroup-lsmy-base \
