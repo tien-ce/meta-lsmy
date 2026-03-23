@@ -45,11 +45,11 @@ IMAGE_FEATURES:remove = "package-management"
 
 # ====== OS SECURITY ======
 # Enable read-only rootfs
-IMAGE_FEATURES += "read-only-rootfs"
+# IMAGE_FEATURES += "read-only-rootfs"
 
 # Disable debug features
-IMAGE_FEATURES:remove = "debug-tweaks"
-EXTRA_IMAGE_FEATURES:remove = "debug-tweaks"
+# IMAGE_FEATURES:remove = "debug-tweaks"
+# EXTRA_IMAGE_FEATURES:remove = "debug-tweaks"
 
 # Disable selected brcmfmac firmware features for WiFi stability
 CMDLINE:append = " brcmfmac.feature_disable=0x82000"
