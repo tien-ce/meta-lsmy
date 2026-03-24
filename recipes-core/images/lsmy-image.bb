@@ -18,6 +18,7 @@ WKS_FILE = "sdimage-raspberrypi-lsmy.wks"
 
 # ====== SYSTEM POSTPROCESS ======
 generate_baseline() {
+    export ROOTFS=${IMAGE_ROOTFS}
     sh ${IMAGE_ROOTFS}/usr/bin/gen_baseline.sh
 }
 

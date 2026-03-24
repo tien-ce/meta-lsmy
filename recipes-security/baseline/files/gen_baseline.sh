@@ -1,14 +1,16 @@
 #!/bin/sh
 
-OUTPUT=${IMAGE_ROOTFS}/etc/security/baseline.db
+OUTPUT=$ROOTFS/etc/security/baseline.db
 
-mkdir -p ${IMAGE_ROOTFS}/etc/security
+echo "OUTPUT=$OUTPUT"
+
+mkdir -p $ROOTFS/etc/security
 rm -f $OUTPUT
 
-TARGET_DIRS="${IMAGE_ROOTFS}/etc \
-             ${IMAGE_ROOTFS}/sbin \
-             ${IMAGE_ROOTFS}/usr/bin \
-             ${IMAGE_ROOTFS}/usr/sbin"
+TARGET_DIRS="$ROOTFS/etc \
+             $ROOTFS/sbin \
+             $ROOTFS/usr/bin \
+             $ROOTFS/usr/sbin"
 
 TEMP_LOG=$(mktemp)
 
@@ -16,7 +18,7 @@ echo "# --- Statistics (Folder: File Count) ---" >> $OUTPUT
 for dir in $TARGET_DIRS; do
     if [ -d "$dir" ]; then
         count=$(find "$dir" -type f | wc -l)
-        display_dir=$(echo "$dir" | sed "s#${IMAGE_ROOTFS}##")
+        display_dir=$(echo "$dir" | sed "s#$ROOTFS##")
         echo "# $display_dir: $count files" >> $OUTPUT
     fi
 done
@@ -28,6 +30,6 @@ for dir in $TARGET_DIRS; do
     fi
 done
 
-sed "s#${IMAGE_ROOTFS}##g" $TEMP_LOG >> $OUTPUT
+sed "s#$ROOTFS##g" $TEMP_LOG >> $OUTPUT
 
 rm -f $TEMP_LOG
