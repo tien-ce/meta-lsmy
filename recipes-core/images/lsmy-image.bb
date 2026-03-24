@@ -22,7 +22,7 @@ generate_baseline() {
     sh ${IMAGE_ROOTFS}/usr/bin/gen_baseline.sh
 }
 
-ROOTFS_POSTPROCESS_COMMAND += "generate_baseline;"
+ROOTFS_POSTPROCESS_COMMAND:append = " generate_baseline; "
 
 # ====== SYSTEM FEATURE STACK ======
 IMAGE_INSTALL += "\
