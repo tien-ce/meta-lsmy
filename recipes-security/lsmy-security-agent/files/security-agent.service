@@ -1,0 +1,20 @@
+[Unit]
+Description=Security Agent
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/lsmy-security-agent
+Restart=always
+RestartSec=5
+
+# NoNewPrivileges=yes
+# ProtectSystem=strict
+# ReadWritePaths=/var/lib/run-lsmy /etc/run-lsmy/dynamic_config
+# ProtectHome=yes
+# PrivateTmp=yes
+# ProtectKernelModules=yes
+# ProtectControlGroups=yes
+# MemoryDenyWriteExecute=yes
+
+[Install]
+WantedBy=multi-user.target

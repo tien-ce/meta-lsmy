@@ -30,7 +30,7 @@ do_install() {
 }
 
 SYSTEMD_SERVICE:${PN} = "run-lsmy.service"
-SYSTEMD_AUTO_ENABLE:${PN} = "enable"
+# SYSTEMD_AUTO_ENABLE:${PN} = "enable"
 
 FILES:${PN} += " \
     ${bindir}/run-lsmy \

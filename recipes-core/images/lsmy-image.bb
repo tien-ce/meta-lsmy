@@ -16,6 +16,13 @@ require recipes-extended/images/core-image-full-cmdline.bb
 # ====== SYSTEM CONFIGURATION ======
 WKS_FILE = "sdimage-raspberrypi-lsmy.wks"
 
+# ====== SYSTEM POSTPROCESS ======
+generate_baseline() {
+    sh ${IMAGE_ROOTFS}/usr/bin/gen_baseline.sh
+}
+
+ROOTFS_POSTPROCESS_COMMAND += "generate_baseline;"
+
 # ====== SYSTEM FEATURE STACK ======
 IMAGE_INSTALL += "\
     packagegroup-lsmy-base \
