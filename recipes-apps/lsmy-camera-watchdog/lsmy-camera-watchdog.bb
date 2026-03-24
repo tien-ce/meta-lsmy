@@ -28,6 +28,7 @@ do_install() {
 }
 
 SYSTEMD_SERVICE:${PN} = "camera-watchdog.service"
+SYSTEMD_AUTO_ENABLE:${PN} = "disable"
 
 FILES:${PN} += " \
     ${bindir}/lsmy-camera-watchdog \

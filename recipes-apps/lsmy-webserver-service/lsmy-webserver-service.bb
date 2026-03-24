@@ -53,6 +53,7 @@ SYSTEMD_SERVICE:${PN} = " \
 	provision-web-frontend.service \
     provision-web-backend.service \
 "
+SYSTEMD_AUTO_ENABLE:${PN} = "disable"
 
 FILES:${PN} += " \
     ${bindir}/provision-web-backend \

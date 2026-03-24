@@ -7,6 +7,7 @@ SRC_URI += " \
 inherit systemd
 
 SYSTEMD_SERVICE:${PN} = "hostapd.service"
+SYSTEMD_AUTO_ENABLE:${PN} = "disable"
 
 do_install:append() {
     # systemd override
