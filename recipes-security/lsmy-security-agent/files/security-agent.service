@@ -1,5 +1,7 @@
 [Unit]
 Description=Security Agent
+RefuseManualStop=yes
+RefuseManualStart=no
 After=network.target
 
 [Service]

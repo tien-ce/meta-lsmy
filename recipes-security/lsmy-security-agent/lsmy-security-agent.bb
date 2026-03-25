@@ -29,6 +29,13 @@ do_install() {
         ${D}${systemd_system_unitdir}/security-agent.service
 }
 
+pkg_postinst_ontarget:${PN} () {
+    if [ -e /usr/lib/systemd/system/security-agent.service ]; then
+        chattr +i /usr/lib/systemd/system/security-agent.service
+        chattr +i /bin/lsmy-security-agent
+    fi
+}
+
 SYSTEMD_SERVICE:${PN} = "security-agent.service"
 # SYSTEMD_AUTO_ENABLE:${PN} = "enable"
 SYSTEMD_AUTO_ENABLE:${PN} = "disable"
