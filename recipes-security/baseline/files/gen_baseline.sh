@@ -12,6 +12,10 @@ TARGET_DIRS="$ROOTFS/etc \
              $ROOTFS/usr/bin \
              $ROOTFS/usr/sbin"
 
+EXCLUDE_ARGS="-not -path '*/etc/security/baseline.db' \
+              -not -path '*/etc/fstab' \
+              -not -path '*/etc/wpa_supplicant.conf'"
+
 TEMP_LOG=$(mktemp)
 
 echo "# --- Statistics (Folder: File Count) ---" >> $OUTPUT
@@ -26,7 +30,7 @@ echo "# ---------------------------------------" >> $OUTPUT
 
 for dir in $TARGET_DIRS; do
     if [ -d "$dir" ]; then
-        find "$dir" -type f -exec sha256sum {} + >> $TEMP_LOG
+        find "$dir" -type f $EXCLUDE_ARGS -exec sha256sum {} + >> $TEMP_LOG
     fi
 done
 
