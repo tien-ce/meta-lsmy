@@ -8,8 +8,8 @@ mkdir -p $ROOTFS/etc/security
 rm -f $OUTPUT
 
 TARGET_DIRS="$ROOTFS/etc \
-             $ROOTFS/bin \
-             $ROOTFS/sbin \
+             $ROOTFS/usr/bin \
+             $ROOTFS/usr/sbin \
              $ROOTFS/usr/lib/python3.12/site-packages/lsmy_app \
              $ROOTFS/usr/lib/python3.12/site-packages/lsmy_webserver \
              $ROOTFS/usr/lib/python3.12/site-packages/lsmy_python_lib"

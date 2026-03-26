@@ -20,6 +20,7 @@ WKS_FILE = "sdimage-raspberrypi-lsmy.wks"
 generate_baseline() {
     export ROOTFS=${IMAGE_ROOTFS}
     sh ${IMAGE_ROOTFS}/usr/bin/gen_baseline.sh
+    sh ${IMAGE_ROOTFS}/usr/bin/gen_gold_backup.sh
 }
 
 ROOTFS_POSTPROCESS_COMMAND:append = " generate_baseline; "

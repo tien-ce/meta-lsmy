@@ -15,6 +15,7 @@ inherit systemd
 RDEPENDS:${PN} += " \
     python3-core \
     baseline \
+    gold-backup \
 "
 
 do_install() {
@@ -33,6 +34,10 @@ pkg_postinst_ontarget:${PN} () {
     if [ -e /usr/lib/systemd/system/security-agent.service ]; then
         chattr +i /usr/lib/systemd/system/security-agent.service
         chattr +i /bin/lsmy-security-agent
+    fi
+
+    if [ -e /etc/security/gold_backup.tar.gz ]; then
+        chattr +i /etc/security/gold_backup.tar.gz
     fi
 }
 
