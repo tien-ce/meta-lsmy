@@ -11,20 +11,15 @@ def get_host_ip():
     import subprocess
     try:
         ip = subprocess.check_output(arg, shell=True).decode('utf-8').strip()
+        # bb.plain("---------------------------------------------------------")
+        # bb.plain("LSMY Server: http://%s:8000" % ip)
+        # bb.plain("---------------------------------------------------------")
         return ip
     except:
         return "127.0.0.1"
 
 SERVER_IP ?= "${@get_host_ip()}"
 SERVER_PORT = "8000"
-
-do_show_info() {
-    bbplain "---------------------------------------------------------"
-    bbplain "  LSMY Server: http://${SERVER_IP}:${SERVER_PORT}"
-    bbplain "---------------------------------------------------------"
-}
-
-addtask show_info before do_rootfs
 
 do_install() {
     install -d ${D}${sysconfdir}/opkg
