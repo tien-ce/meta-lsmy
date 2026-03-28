@@ -8,12 +8,10 @@ inherit packagegroup
 RDEPENDS:${PN} = " \
     nano \
     htop \
-    ncdu \
     rsync \
     zip \
     unzip \
     tree \
-    dfc \
     procps \
     logrotate \
 "
