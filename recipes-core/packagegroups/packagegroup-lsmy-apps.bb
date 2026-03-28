@@ -12,4 +12,5 @@ RDEPENDS:${PN} = "\
     run-lsmy \
     wifi-config \
     models-deployer \
+    opkg-config-server \
 "
