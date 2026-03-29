@@ -18,7 +18,7 @@ WKS_FILE = "sdimage-raspberrypi-lsmy.wks"
 
 # ====== SYSTEM POSTPROCESS ======
 do_generate_baseline() {
-    bbwarn "=== GENERATE BASELINE  ==="
+    # bbwarn "=== GENERATE BASELINE  ==="
 
     export ROOTFS=${IMAGE_ROOTFS}
     export MANIFEST_FILE="${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.manifest"
