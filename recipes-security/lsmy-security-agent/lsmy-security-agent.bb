@@ -17,6 +17,9 @@ inherit systemd
 
 RDEPENDS:${PN} += " \
     python3-core \
+    baseline \
+    gold-backup \
+    whitelist \
 "
 
 do_install() {
@@ -24,15 +27,6 @@ do_install() {
     install -m 0755 \
         ${S}/src/lsmy-security-agent/lsmy-security-agent.py \
         ${D}${bindir}/lsmy-security-agent
-
-    install -d ${D}${bindir}
-    install -m 0755 ${WORKDIR}/gen_baseline.sh ${D}${bindir}/gen_baseline.sh
-
-    install -d ${D}${bindir}
-    install -m 0755 ${WORKDIR}/gen_gold_backup.sh ${D}${bindir}/gen_gold_backup.sh
-
-    install -d ${D}${bindir}
-    install -m 0755 ${WORKDIR}/gen_whitelist.sh ${D}${bindir}/gen_whitelist.sh
 
     install -d ${D}${systemd_system_unitdir}
     install -m 0644 \
@@ -79,8 +73,5 @@ SYSTEMD_AUTO_ENABLE:${PN} = "disable"
 
 FILES:${PN} += " \
     ${bindir}/lsmy-security-agent \
-    ${bindir}/gen_baseline.sh \
-    ${bindir}/gen_gold_backup.sh \
-    ${bindir}/gen_whitelist.sh \
     ${systemd_system_unitdir}/security-agent.service \
 "
