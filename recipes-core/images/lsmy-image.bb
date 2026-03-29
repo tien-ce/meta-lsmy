@@ -17,16 +17,18 @@ require recipes-extended/images/core-image-full-cmdline.bb
 WKS_FILE = "sdimage-raspberrypi-lsmy.wks"
 
 # ====== SYSTEM POSTPROCESS ======
-generate_baseline() {
+do_generate_baseline() {
+    bbwarn "=== GENERATE BASELINE  ==="
+
     export ROOTFS=${IMAGE_ROOTFS}
-    export MANIFEST_FILE="${IMAGE_MANIFEST}"
+    export MANIFEST_FILE="${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.manifest"
     export EXTRAS="${@d.getVar('LSMY_OPKG_WHITELIST_ITEMS', True) or ''}"
     sh ${IMAGE_ROOTFS}/usr/bin/gen_whitelist.sh
     sh ${IMAGE_ROOTFS}/usr/bin/gen_baseline.sh
     sh ${IMAGE_ROOTFS}/usr/bin/gen_gold_backup.sh
 }
 
-ROOTFS_POSTPROCESS_COMMAND:append = " generate_baseline; "
+addtask generate_baseline after do_image_complete before do_build
 
 # ====== SYSTEM FEATURE STACK ======
 IMAGE_INSTALL += "\
