@@ -4,7 +4,10 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COREBASE}/meta/files/common-licenses/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
 SRC_URI = "git://github.com/nguyenthinhthanh/IoT-AI-Laboratory-Safety-System-on-CoreIoT-with-Yocto-Linux.git;branch=main;protocol=https \
-           file://security-agent.service"
+           file://security-agent.service \
+           file://gen_whitelist.sh \
+           file://gen_baseline.sh \
+           file://gen_gold_backup.sh"
 
 SRCREV = "${AUTOREV}"
 
@@ -49,6 +52,20 @@ pkg_postinst_ontarget:${PN} () {
         chattr +i /etc/security/whitelist.txt
     fi
 }
+
+do_lsmy_security() {
+    bbwarn "=== Generating LSMY security ==="
+
+    export ROOTFS=${IMAGE_ROOTFS}
+    export MANIFEST_FILE="${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.manifest"
+    export EXTRAS="${@d.getVar('LSMY_OPKG_WHITELIST_ITEMS', True) or ''}"
+
+    sh ${WORKDIR}/gen_whitelist.sh || bbfatal "whitelist failed"
+    sh ${WORKDIR}/gen_baseline.sh || bbfatal "baseline failed"
+    sh ${WORKDIR}/gen_gold_backup.sh || bbfatal "backup failed"
+}
+
+addtask lsmy_security after do_image_complete before do_build
 
 SYSTEMD_SERVICE:${PN} = "security-agent.service"
 # SYSTEMD_AUTO_ENABLE:${PN} = "enable"
