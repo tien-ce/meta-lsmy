@@ -16,6 +16,7 @@ RDEPENDS:${PN} += " \
     python3-core \
     baseline \
     gold-backup \
+    whitelist \
 "
 
 do_install() {
@@ -36,8 +37,16 @@ pkg_postinst_ontarget:${PN} () {
         chattr +i /bin/lsmy-security-agent
     fi
 
+    if [ -e /etc/security/baseline.db ]; then
+        chattr +i /etc/security/baseline.db
+    fi
+
     if [ -e /etc/security/gold_backup.tar.gz ]; then
         chattr +i /etc/security/gold_backup.tar.gz
+    fi
+
+    if [ -e /etc/security/whitelist.txt ]; then
+        chattr +i /etc/security/whitelist.txt
     fi
 }
 

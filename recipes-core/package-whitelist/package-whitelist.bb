@@ -5,7 +5,7 @@ LICENSE = "MIT"
 inherit packagegroup
 
 # ====== PACKAGE WHITELIST ======
-RDEPENDS:${PN} = " \
+LSMY_OPKG_WHITELIST_ITEMS = " \
     nano \
     htop \
     rsync \
@@ -15,3 +15,5 @@ RDEPENDS:${PN} = " \
     procps \
     logrotate \
 "
+
+RDEPENDS:${PN} = "${LSMY_OPKG_WHITELIST_ITEMS}"

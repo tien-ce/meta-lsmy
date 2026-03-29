@@ -19,6 +19,9 @@ WKS_FILE = "sdimage-raspberrypi-lsmy.wks"
 # ====== SYSTEM POSTPROCESS ======
 generate_baseline() {
     export ROOTFS=${IMAGE_ROOTFS}
+    export MANIFEST_FILE="${IMAGE_MANIFEST}"
+    export EXTRAS="${@d.getVar('LSMY_OPKG_WHITELIST_ITEMS', True) or ''}"
+    sh ${IMAGE_ROOTFS}/usr/bin/gen_whitelist.sh
     sh ${IMAGE_ROOTFS}/usr/bin/gen_baseline.sh
     sh ${IMAGE_ROOTFS}/usr/bin/gen_gold_backup.sh
 }
