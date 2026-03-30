@@ -14,9 +14,11 @@ def get_host_ip():
         # bb.plain("---------------------------------------------------------")
         # bb.plain("LSMY Server: http://%s:8000" % ip)
         # bb.plain("---------------------------------------------------------")
+        if not ip:
+            ip = "192.168.1.7"
         return ip
     except:
-        return "127.0.0.1"
+        return "192.168.1.7"
 
 SERVER_IP ?= "${@get_host_ip()}"
 SERVER_PORT = "8000"

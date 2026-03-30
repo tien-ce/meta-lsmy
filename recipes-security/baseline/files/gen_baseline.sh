@@ -17,6 +17,7 @@ TARGET_DIRS="$ROOTFS/etc \
 EXCLUDE_PATTERN="etc/security/baseline.db"
 EXCLUDE_PATTERN="$EXCLUDE_PATTERN|etc/fstab"
 EXCLUDE_PATTERN="$EXCLUDE_PATTERN|etc/wpa_supplicant"
+EXCLUDE_PATTERN="$EXCLUDE_PATTERN|/etc/opkg/lsmy-feed.conf"
 
 TEMP_LOG=$(mktemp)
 
