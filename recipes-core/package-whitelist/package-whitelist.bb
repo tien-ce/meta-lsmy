@@ -2,18 +2,8 @@ SUMMARY = "LSMY Whitelist Packages for OPKG management"
 DESCRIPTION = "A collection of essential packages intended for use with OPKG for automatic updates"
 LICENSE = "MIT"
 
-inherit packagegroup
+require recipes-core/include/parameters.inc
 
-# ====== PACKAGE WHITELIST ======
-LSMY_OPKG_WHITELIST_ITEMS = " \
-    nano \
-    htop \
-    rsync \
-    zip \
-    unzip \
-    tree \
-    procps \
-    logrotate \
-"
+inherit packagegroup
 
 RDEPENDS:${PN} = "${LSMY_OPKG_WHITELIST_ITEMS}"

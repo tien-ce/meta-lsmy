@@ -6,6 +6,8 @@ inherit core-image
 
 # Inherit the behavior of full-cmdline
 require recipes-extended/images/core-image-full-cmdline.bb
+# Include systems parameters
+require recipes-core/include/parameters.inc
 
 ############################################
 # DEVELOP CUSTOM CONFIGURATION
@@ -23,6 +25,8 @@ do_lsmy_security() {
     export ROOTFS=${IMAGE_ROOTFS}
     export WORKDIR="${WORKDIR}"
     export EXTRAS="${@d.getVar('LSMY_OPKG_WHITELIST_ITEMS', True) or ''}"
+    #export EXTRAS=""
+    #bbwarn "EXTRAS is set to --> '$EXTRAS'"
 
     export MANIFEST_FILE="${WORKDIR}/lsmy_temp.manifest"
     
