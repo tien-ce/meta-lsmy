@@ -18,18 +18,27 @@ WKS_FILE = "sdimage-raspberrypi-lsmy.wks"
 
 # ====== SYSTEM HARDENING ======
 do_lsmy_security() {
-    bbwarn "=== Generating LSMY security ==="
+    #bbwarn "=== Generating LSMY security ==="
 
     export ROOTFS=${IMAGE_ROOTFS}
-    export MANIFEST_FILE="${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.manifest"
+    export WORKDIR="${WORKDIR}"
     export EXTRAS="${@d.getVar('LSMY_OPKG_WHITELIST_ITEMS', True) or ''}"
 
-    sh ${WORKDIR}/gen_whitelist.sh || bbfatal "whitelist failed"
-    sh ${WORKDIR}/gen_baseline.sh || bbfatal "baseline failed"
-    sh ${WORKDIR}/gen_gold_backup.sh || bbfatal "backup failed"
+    export MANIFEST_FILE="${WORKDIR}/lsmy_temp.manifest"
+    
+    if [ -f "${IMAGE_ROOTFS}/var/lib/opkg/status" ]; then
+        #bbwarn "Detected OPKG database..."
+        grep "^Package: " "${IMAGE_ROOTFS}/var/lib/opkg/status" | cut -d' ' -f2 > "$MANIFEST_FILE"
+    else
+        bbwarn "Cannot found /var/lib/opkg/status"
+    fi
+
+    sh ${IMAGE_ROOTFS}${bindir}/gen_whitelist.sh || bbfatal "Whitelist generation failed"
+    sh ${IMAGE_ROOTFS}${bindir}/gen_baseline.sh || bbfatal "Baseline generation failed"
+    sh ${IMAGE_ROOTFS}${bindir}/gen_gold_backup.sh || bbfatal "Backup generation failed"
 }
 
-addtask lsmy_security after do_image_complete before do_build
+ROOTFS_POSTPROCESS_COMMAND += "do_lsmy_security; "
 
 # ====== SYSTEM FEATURE STACK ======
 IMAGE_INSTALL += "\

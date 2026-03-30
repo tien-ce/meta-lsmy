@@ -1,15 +1,15 @@
 #!/bin/sh
 
-OUTPUT_DIR="$ROOTFS/etc/lsmy/security"
+OUTPUT_DIR="$ROOTFS/etc/security"
 OUTPUT_FILE="$OUTPUT_DIR/whitelist.txt"
 
 echo "Generating package whitelist baseline..."
 mkdir -p "$OUTPUT_DIR"
 
-if [ -f "$MANIFEST_FILE" ]; then
+if [ -s "$MANIFEST_FILE" ]; then
     awk '{print $1}' "$MANIFEST_FILE" > "$OUTPUT_FILE"
 else
-    echo "Warning: Manifest file not found at $MANIFEST_FILE"
+    echo "Error: Manifest file is empty or missing at $MANIFEST_FILE"
     exit 1
 fi
 
