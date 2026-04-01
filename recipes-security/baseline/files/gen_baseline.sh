@@ -25,7 +25,11 @@ echo "# --- Statistics ---" >> $OUTPUT
 for dir in $TARGET_DIRS; do
     if [ -d "$dir" ]; then
         count=$(find "$dir" -type f | grep -vE "$EXCLUDE_PATTERN" | wc -l)
-        display_dir=$(echo "$dir" | sed "s#$ROOTFS##")
+        if [ -n "$ROOTFS" ]; then
+            display_dir=$(echo "$dir" | sed "s#$ROOTFS##")
+        else
+            display_dir="$dir"
+        fi
         echo "# $display_dir: $count files" >> $OUTPUT
     fi
 done
@@ -37,6 +41,10 @@ for dir in $TARGET_DIRS; do
     fi
 done
 
-sed "s#$ROOTFS##g" $TEMP_LOG >> $OUTPUT
+if [ -n "$ROOTFS" ]; then
+    sed "s#$ROOTFS##g" "$TEMP_LOG" >> "$OUTPUT"
+else
+    cat "$TEMP_LOG" >> "$OUTPUT"
+fi
 
 rm -f $TEMP_LOG
