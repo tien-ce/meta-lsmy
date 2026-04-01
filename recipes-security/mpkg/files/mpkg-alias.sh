@@ -1,0 +1,1 @@
+alias opkg='/usr/bin/mpkg'

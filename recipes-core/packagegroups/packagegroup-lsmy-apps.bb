@@ -13,4 +13,5 @@ RDEPENDS:${PN} = "\
     wifi-config \
     models-deployer \
     opkg-config-server \
+    mpkg \
 "
