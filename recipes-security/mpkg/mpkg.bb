@@ -9,6 +9,10 @@ SRC_URI = "file://mpkg.sh \
 
 inherit systemd
 
+RDEPENDS:${PN} += " \
+    socat \
+"
+
 do_install() {
     install -d ${D}${bindir}
     install -m 0755 ${WORKDIR}/mpkg.sh ${D}${bindir}/mpkg

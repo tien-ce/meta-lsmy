@@ -10,7 +10,22 @@ BASELINE_DB="/etc/security/baseline.db"
 GOLD_BACKUP="/etc/security/gold_backup.tar.gz"
 
 notify_agent() {
-    printf "%s:%s" "$1" "$TOKEN" | nc -U "$SOCKET" > /dev/null 2>&1
+    CMD="$1:$TOKEN"
+
+    if command -v socat >/dev/null 2>&1; then
+        printf "%s\n" "$CMD" | socat - UNIX-CONNECT:"$SOCKET" 2>/dev/null
+    else
+        python3 - << EOF 2>/dev/null
+import socket
+try:
+    sock = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
+    sock.connect("$SOCKET")
+    sock.sendall(b"$CMD\n")
+    sock.close()
+except Exception as e:
+    pass
+EOF
+    fi
 }
 
 ACTION=$1

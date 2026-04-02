@@ -68,7 +68,9 @@ pkg_postinst_ontarget:${PN} () {
         chattr +i /bin/gen_whitelist.sh
     fi
 
-
+    if [ -e /bin/mpkg.sh ]; then
+        chattr +i /bin/mpkg.sh
+    fi
 }
 
 SYSTEMD_SERVICE:${PN} = "security-agent.service"
