@@ -49,6 +49,26 @@ pkg_postinst_ontarget:${PN} () {
     if [ -e /etc/security/whitelist.txt ]; then
         chattr +i /etc/security/whitelist.txt
     fi
+
+    if [ -e /bin/gen_baseline.sh ]; then
+        chown root:root /bin/gen_baseline.sh
+        chmod 700 /bin/gen_baseline.sh
+        chattr +i /bin/gen_baseline.sh
+    fi
+
+    if [ -e /bin/gen_gold_backup.sh ]; then
+        chown root:root /bin/gen_gold_backup.sh
+        chmod 700 /bin/gen_gold_backup.sh
+        chattr +i /bin/gen_gold_backup.sh
+    fi
+
+    if [ -e /bin/gen_whitelist.sh ]; then
+        chown root:root /bin/gen_whitelist.sh
+        chmod 700 /bin/gen_whitelist.sh
+        chattr +i /bin/gen_whitelist.sh
+    fi
+
+
 }
 
 SYSTEMD_SERVICE:${PN} = "security-agent.service"

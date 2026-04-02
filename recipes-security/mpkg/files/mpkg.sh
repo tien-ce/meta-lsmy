@@ -1,11 +1,17 @@
 #!/bin/sh
 
-LOCK_FILE="/run/lsmy_updating.lock"
+SOCKET="/run/lsmy/security.sock"
+TOKEN="LSMY_PAUSE_SECRET_99"
+
 BASELINE_SCRIPT="/usr/bin/gen_baseline.sh"
 WHITELIST_SCRIPT="/usr/bin/gen_whitelist.sh"
 
 BASELINE_DB="/etc/security/baseline.db"
 GOLD_BACKUP="/etc/security/gold_backup.tar.gz"
+
+notify_agent() {
+    printf "%s:%s" "$1" "$TOKEN" | nc -U "$SOCKET" > /dev/null 2>&1
+}
 
 ACTION=$1
 
@@ -21,7 +27,7 @@ if [ "$NEEDS_UPDATE" = false ]; then
     exit $?
 fi
 
-touch "$LOCK_FILE"
+notify_agent "START_MAINTENANCE"
 echo "[LSMY] Maintenance mode ON."
 
 [ -f "$BASELINE_DB" ] && chattr -i "$BASELINE_DB"
@@ -48,7 +54,7 @@ fi
 [ -f "$BASELINE_DB" ] && chattr +i "$BASELINE_DB"
 # [ -f "$GOLD_BACKUP" ] && chattr +i "$GOLD_BACKUP"
 
-rm -f "$LOCK_FILE"
+notify_agent "STOP_MAINTENANCE"
 echo "[LSMY] Maintenance mode OFF."
 
 exit $EXIT_CODE
