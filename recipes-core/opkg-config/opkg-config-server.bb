@@ -5,6 +5,12 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/meta/files/common-licenses/MIT;md5=0835ad
 
 S = "${WORKDIR}"
 
+inherit systemd
+
+RDEPENDS:${PN} += " \
+    opkg-keys \
+"
+
 def get_host_ip():
     import os
     arg = "hostname -I | awk '{print $1}'"
