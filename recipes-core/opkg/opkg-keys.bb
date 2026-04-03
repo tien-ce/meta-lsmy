@@ -9,24 +9,29 @@ S = "${WORKDIR}"
 
 inherit systemd
 
-DEPENDS += "gnupg-native"
-
 do_install() {
     install -d ${D}${sysconfdir}/opkg/keys
     install -m 0644 ${WORKDIR}/lsmy-pub.key ${D}${sysconfdir}/opkg/keys/lsmy-pub.key
+}
 
-    install -d ${D}${sysconfdir}/opkg/gpg
-    gpg --batch --homedir ${D}${sysconfdir}/opkg/gpg --import ${WORKDIR}/lsmy-pub.key
-    echo "B9D89B17D0CB8A514FBC498612879EE7E411807D:6:" | gpg --batch --homedir ${D}${sysconfdir}/opkg/gpg --import-ownertrust
+pkg_postinst_ontarget:${PN} () {
+    #!/bin/sh
+    echo "Configuring GPG key for OPKG..."
+    
+    date -s "2026-04-03 15:45:00"    
 
-    chmod 644 ${D}${sysconfdir}/opkg/gpg/pubring.kbx
-    chmod 644 ${D}${sysconfdir}/opkg/gpg/trustdb.gpg
-
-    rm -rf ${D}${sysconfdir}/opkg/gpg/S.*
-    rm -f ${D}${sysconfdir}/opkg/gpg/*.lock
+    opkg-key list    
+   
+    gpg --homedir /etc/opkg/gpg --import /etc/opkg/keys/lsmy-pub.key
+    
+    echo "B9D89B17D0CB8A514FBC498612879EE7E411807D:6:" | gpg --homedir /etc/opkg/gpg --import-ownertrust
+    
+    chmod 644 /etc/opkg/gpg/pubring.kbx
+    chmod 644 /etc/opkg/gpg/trustdb.gpg
+    
+    echo "GPG Key configuration finished!"
 }
 
 FILES:${PN} += " \
     ${sysconfdir}/opkg/keys/lsmy-pub.key \
-    ${sysconfdir}/opkg/gpg/* \
 "
