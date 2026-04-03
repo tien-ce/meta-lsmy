@@ -9,6 +9,8 @@ S = "${WORKDIR}"
 
 inherit systemd
 
+RDEPENDS:${PN} += "time-init"
+
 do_install() {
     install -d ${D}${sysconfdir}/opkg/keys
     install -m 0644 ${WORKDIR}/lsmy-pub.key ${D}${sysconfdir}/opkg/keys/lsmy-pub.key
@@ -18,7 +20,7 @@ pkg_postinst_ontarget:${PN} () {
     #!/bin/sh
     echo "Configuring GPG key for OPKG..."
     
-    date -s "2026-04-03 15:45:00"    
+    #date -s "2026-04-03 15:45:00" 
 
     opkg-key list    
    

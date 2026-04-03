@@ -14,4 +14,5 @@ RDEPENDS:${PN} = "\
     models-deployer \
     opkg-config-server \
     mpkg \
+    time-init \
 "
