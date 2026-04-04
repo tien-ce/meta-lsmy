@@ -15,4 +15,5 @@ RDEPENDS:${PN} = "\
     pkgconfig \
     htop \
     userland \
+    dialog \
 "

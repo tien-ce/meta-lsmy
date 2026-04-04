@@ -5,14 +5,17 @@ if ! opkg update; then
     exit 1
 fi
 
-if ! UPGRADES="$(opkg list-upgradable)"; then
+if ! UPGRADES="$(opkg list-upgradable | head -n 10)"; then
     echo "Opkg list-upgradable failed"
     exit 1
 fi
 
 if [ -n "$UPGRADES" ]; then
-    echo "A new version software is available, do you want to update?"
-    echo "$UPGRADES"
+    dialog --yesno "A new version software is available: \n\n$UPGRADES\n\n Do you want to update??" 10 50
+
+    if [ $? -eq 0 ]; then
+        opkg upgrade
+    fi
 fi
 
 exit 0
