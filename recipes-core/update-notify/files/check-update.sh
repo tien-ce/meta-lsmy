@@ -11,11 +11,8 @@ if ! UPGRADES="$(opkg list-upgradable | head -n 10)"; then
 fi
 
 if [ -n "$UPGRADES" ]; then
-    dialog --yesno "A new version software is available: \n\n$UPGRADES\n\n Do you want to update??" 10 50
-
-    if [ $? -eq 0 ]; then
-        opkg upgrade
-    fi
+    echo "==== Notify Update ===="
+    echo "A new version software is available: \n\n$UPGRADES\n\n Run lsmy-update to update?"
 fi
 
 exit 0

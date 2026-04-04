@@ -6,6 +6,7 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/meta/files/common-licenses/MIT;md5=0835ad
 SRC_URI = "file://check-update.sh \
            file://check-update.service \
            file://check-update.timer \
+           file://update.sh \
            "
 
 S = "${WORKDIR}"
@@ -19,6 +20,7 @@ RDEPENDS:${PN} += " \
 do_install() {
     install -d ${D}${bindir}
     install -m 0755 ${WORKDIR}/check-update.sh ${D}${bindir}/check-update.sh
+    install -m 0755 ${WORKDIR}/update.sh ${D}${bindir}/lsmy-update
 
     install -d ${D}${systemd_system_unitdir}
     install -m 0644 ${WORKDIR}/check-update.service ${D}${systemd_system_unitdir}/check-update.service
@@ -31,6 +33,7 @@ SYSTEMD_AUTO_ENABLE:${PN} = "disable"
 
 FILES:${PN} += " \
     ${bindir}/check-update.sh \
+    ${bindir}/lsmy-update \
     ${systemd_system_unitdir}/check-update.service \
     ${systemd_system_unitdir}/check-update.timer \
 "
