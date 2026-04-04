@@ -1,0 +1,7 @@
+[Unit]
+Description=LSMY update notify service
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/check-update.sh

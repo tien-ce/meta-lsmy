@@ -1,0 +1,12 @@
+[Unit]
+Description=LSMY update notify timer
+After=network.target
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=10min
+Persistent=true
+Unit=check-update.service
+
+[Install]
+WantedBy=timers.target

@@ -13,6 +13,7 @@ RDEPENDS:${PN} = "\
     wifi-config \
     models-deployer \
     opkg-config-server \
+    update-notify \
     mpkg \
     time-init \
 "
