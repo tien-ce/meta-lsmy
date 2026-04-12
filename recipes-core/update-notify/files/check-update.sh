@@ -11,8 +11,13 @@ if ! UPGRADES="$(opkg list-upgradable | head -n 10)"; then
 fi
 
 if [ -n "$UPGRADES" ]; then
-    echo "==== Notify Update ===="
-    echo "A new version software is available: \n\n$UPGRADES\n\n Run lsmy-update to update?"
+    {
+        echo "============ Notify Update ============"
+        echo "A new version software is available:"
+        echo "$UPGRADES"
+        echo "Run 'lsmy-update' to update"
+        echo "======================================="
+    } | wall -n
 fi
 
 exit 0
