@@ -28,8 +28,8 @@ do_install() {
 }
 
 SYSTEMD_SERVICE:${PN} = "check-update.timer"
-# SYSTEMD_AUTO_ENABLE:${PN} = "enable"
-SYSTEMD_AUTO_ENABLE:${PN} = "disable"
+SYSTEMD_AUTO_ENABLE:${PN} = "enable"
+# SYSTEMD_AUTO_ENABLE:${PN} = "disable"
 
 FILES:${PN} += " \
     ${bindir}/check-update.sh \
