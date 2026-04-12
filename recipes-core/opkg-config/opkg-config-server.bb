@@ -9,32 +9,29 @@ inherit systemd
 
 RDEPENDS:${PN} += " \
     opkg-keys \
+    avahi-daemon \
 "
 
-def get_host_ip():
-    import os
-    arg = "hostname -I | awk '{print $1}'"
-    import subprocess
+def get_host_name():
+    import socket
     try:
-        ip = subprocess.check_output(arg, shell=True).decode('utf-8').strip()
+        hostname = socket.gethostname()
         # bb.plain("---------------------------------------------------------")
-        # bb.plain("LSMY Server: http://%s:8000" % ip)
+        # bb.plain("LSMY Server: http://%s:8000" % hostname)
         # bb.plain("---------------------------------------------------------")
-        if not ip:
-            ip = "192.168.1.7"
-        return ip
+        return hostname
     except:
-        return "192.168.1.7"
+        return "ironman-VirtualBox"
 
-SERVER_IP ?= "${@get_host_ip()}"
+SERVER_NAME ?= "${@get_host_name()}"
 SERVER_PORT = "8000"
 
 do_install() {
     install -d ${D}${sysconfdir}/opkg
     
-    echo "src/gz all http://${SERVER_IP}:${SERVER_PORT}/all" > ${D}${sysconfdir}/opkg/lsmy-feed.conf
-    echo "src/gz cortexa72 http://${SERVER_IP}:${SERVER_PORT}/cortexa72" >> ${D}${sysconfdir}/opkg/lsmy-feed.conf
-    echo "src/gz raspberrypi4_lsmy http://${SERVER_IP}:${SERVER_PORT}/raspberrypi4_lsmy" >> ${D}${sysconfdir}/opkg/lsmy-feed.conf
+    echo "src/gz all http://${SERVER_NAME}.local:${SERVER_PORT}/all" > ${D}${sysconfdir}/opkg/lsmy-feed.conf
+    echo "src/gz cortexa72 http://${SERVER_NAME}.local:${SERVER_PORT}/cortexa72" >> ${D}${sysconfdir}/opkg/lsmy-feed.conf
+    echo "src/gz raspberrypi4_lsmy http://${SERVER_NAME}.local:${SERVER_PORT}/raspberrypi4_lsmy" >> ${D}${sysconfdir}/opkg/lsmy-feed.conf
 }
 
 FILES:${PN} = "${sysconfdir}/opkg/lsmy-feed.conf"
