@@ -2,6 +2,7 @@
 Description=LSMY Main Application
 After=network.target
 After=weston.service
+After=security-agent.service
 
 [Service]
 Type=simple
