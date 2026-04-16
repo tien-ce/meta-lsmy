@@ -74,8 +74,8 @@ pkg_postinst_ontarget:${PN} () {
 }
 
 SYSTEMD_SERVICE:${PN} = "security-agent.service"
-SYSTEMD_AUTO_ENABLE:${PN} = "enable"
-# SYSTEMD_AUTO_ENABLE:${PN} = "disable"
+# SYSTEMD_AUTO_ENABLE:${PN} = "enable"
+SYSTEMD_AUTO_ENABLE:${PN} = "disable"
 
 FILES:${PN} += " \
     ${bindir}/lsmy-security-agent \
