@@ -8,10 +8,11 @@ SRCREV = "${AUTOREV}"
 
 S = "${WORKDIR}/git/ai/nnstreamer-blaze"
 
-DEPENDS += "nnstreamer"
+DEPENDS += "nnstreamer glib-2.0"
+inherit pkgconfig
 
 do_compile() {
-    ${CC} ${CFLAGS} -fPIC -shared blaze_decode.c \
+    ${CC} ${CFLAGS} -I${STAGING_INCDIR}/nnstreamer -fPIC -shared blaze_decode.c \
         -o libnnstreamer_customfilter_blaze_decode.so \
         ${LDFLAGS} -lnnstreamer -lglib-2.0
 }
