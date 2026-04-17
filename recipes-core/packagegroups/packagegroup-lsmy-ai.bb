@@ -7,7 +7,6 @@ inherit packagegroup
 # ====== PYTHON AI / NUMERICAL ======
 # - Numerical computation
 # - OpenCV Python bindings
-#RDEPENDS:${PN} = "\
-#    python3-numpy \
-#    python3-opencv \
-#"
+RDEPENDS:${PN} = "\
+    nnstreamer-blaze \
+"
