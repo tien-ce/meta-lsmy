@@ -12,15 +12,17 @@ DEPENDS += "nnstreamer glib-2.0"
 inherit pkgconfig
 
 do_compile() {
-    ${CC} ${CFLAGS} -I${STAGING_INCDIR}/nnstreamer -fPIC -shared blaze_decode.c \
-        -o libnnstreamer_customfilter_blaze_decode.so \
-        ${LDFLAGS} -lnnstreamer -lglib-2.0
+    GLIB_FLAGS=`pkg-config --cflags --libs glib-2.0`
+    NNS_FLAGS=`pkg-config --cflags --libs nnstreamer`
+    ${CC} ${CFLAGS} ${LDFLAGS} -fPIC -shared blaze_decode.c \
+        -o libnnstreamer_filter_blaze_decode.so \
+        $GLIB_FLAGS $NNS_FLAGS
 }
 
 do_install() {
-    install -d ${D}/usr/lib/nnstreamer/customfilters
-    install -m 0755 libnnstreamer_customfilter_blaze_decode.so \
-        ${D}/usr/lib/nnstreamer/customfilters/
+    install -d ${D}/usr/lib/nnstreamer/filters
+    install -m 0755 libnnstreamer_filter_blaze_decode.so \
+        ${D}/usr/lib/nnstreamer/filters/
 }
 
-FILES:${PN} += "/usr/lib/nnstreamer/customfilters/libnnstreamer_customfilter_blaze_decode.so"
+FILES:${PN} += "/usr/lib/nnstreamer/filters/libnnstreamer_filter_blaze_decode.so"
