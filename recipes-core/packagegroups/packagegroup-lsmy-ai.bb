@@ -9,4 +9,5 @@ inherit packagegroup
 # - OpenCV Python bindings
 RDEPENDS:${PN} = "\
     nnstreamer-blaze \
+    nnstreamer-face-mesh \
 "
