@@ -10,4 +10,5 @@ inherit packagegroup
 RDEPENDS:${PN} = "\
     nnstreamer-blaze \
     nnstreamer-face-mesh \
+    nnstreamer-crop \
 "
