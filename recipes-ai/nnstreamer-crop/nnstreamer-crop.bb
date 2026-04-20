@@ -1,5 +1,5 @@
-SUMMARY = "NNStreamer custom filter: crop_decode"
-DESCRIPTION = "Custom tensor_filter for CropFace decode"
+SUMMARY = "GStreamer cropdecode plugin"
+DESCRIPTION = "Custom GstBaseTransform plugin to decode tensor_crop output"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COREBASE}/meta/files/common-licenses/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
@@ -8,21 +8,24 @@ SRCREV = "${AUTOREV}"
 
 S = "${WORKDIR}/git/ai/nnstreamer-crop"
 
-DEPENDS += "nnstreamer glib-2.0"
+DEPENDS += "gstreamer1.0 gstreamer1.0-plugins-base nnstreamer glib-2.0"
 inherit pkgconfig
 
 do_compile() {
-    GLIB_FLAGS=`pkg-config --cflags --libs glib-2.0`
+    GST_FLAGS=`pkg-config --cflags --libs gstreamer-1.0 gstreamer-base-1.0`
     NNS_FLAGS=`pkg-config --cflags --libs nnstreamer`
+    GLIB_FLAGS=`pkg-config --cflags --libs glib-2.0`
+
     ${CC} ${CFLAGS} ${LDFLAGS} -fPIC -shared crop_decode.c \
-        -o libnnstreamer_filter_crop_decode.so \
-        $GLIB_FLAGS $NNS_FLAGS
+        -o libgstcropdecode.so \
+        $GST_FLAGS $NNS_FLAGS $GLIB_FLAGS
 }
 
 do_install() {
-    install -d ${D}/usr/lib/nnstreamer/filters
-    install -m 0755 libnnstreamer_filter_crop_decode.so \
-        ${D}/usr/lib/nnstreamer/filters/
+    install -d ${D}${libdir}/gstreamer-1.0
+
+    install -m 0755 libgstcropdecode.so \
+        ${D}${libdir}/gstreamer-1.0/
 }
 
-FILES:${PN} += "/usr/lib/nnstreamer/filters/libnnstreamer_filter_crop_decode.so"
+FILES:${PN} += "${libdir}/gstreamer-1.0/libgstcropdecode.so"
