@@ -9,6 +9,13 @@ SRCREV = "${AUTOREV}"
 S = "${WORKDIR}/git/ai/nnstreamer-crop"
 
 DEPENDS += "gstreamer1.0 gstreamer1.0-plugins-base nnstreamer glib-2.0"
+
+RDEPENDS:${PN} += " \
+    gstreamer1.0 \
+    gstreamer1.0-plugins-base \
+    nnstreamer \
+"
+
 inherit pkgconfig
 
 do_compile() {
